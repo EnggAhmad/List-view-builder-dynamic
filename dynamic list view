@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text("List View"),
+      ),
+      body: Material(
+        child: MyApp(),
+      ),
+    ),
+  ));
+}
+
+class MyApp extends StatelessWidget {
+   List <String> titlelist= ['Jan','Feb ','March','April','May','June','July','Aug','Sep','Oct','Nov','Dec',];
+  List <String> subtitles= ['Jan','Feb ','March','April','May','June','July','Aug','Sep','Oct','Nov','Dec',];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: titlelist.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            //color: Colors.amber,
+            child: ListTile(
+              title: Text(titlelist[index]),
+              subtitle: Text(subtitles[index]),
+              leading: Icon(Icons.icecream_outlined),
+              trailing: Icon(Icons.icecream),
+              iconColor: Colors.blueAccent,
+              tileColor: Colors.pink,
+              horizontalTitleGap: 10.0,
+              minVerticalPadding: 20.0,
+              minLeadingWidth: 20.0,
+            ),
+          );
+        });
+  }
+}
